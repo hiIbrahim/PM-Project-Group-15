@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Standards</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="overlay">
+
+<nav class="navbar">
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="pmbok.html">PMBOK7</a>
+    <a href="prince2.html">PRINCE2</a>
+    <a href="iso.html">ISO 21500/21502</a>
+    <a href="comparison.html">Comparison</a>
+    <a href="search.html">Search</a>
+    <a href="test.html">Explorer</a>
+  </div>
+</nav>
+
+
+  <div class="container">
+    <h1>Search Across PM Standards</h1>
+    <input type="text" id="searchBox" placeholder="Enter your query..." style="width:70%; padding:10px;">
+    <button onclick="runSearch()">Search</button>
+    <div id="results" style="margin-top:20px;"></div>
+  </div>
+
+</div>
+
+<script>
+async function runSearch() {
+  const query = document.getElementById("searchBox").value.trim();
+  if (!query) return alert("Please enter a query.");
+  document.getElementById("results").innerHTML = "<p>Searching...</p>";
+
+  const response = await fetch("http://127.0.0.1:5000/api/search", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ query })
+  });
+
+  const data = await response.json();
+  let html = `<h2>Results for "${data.query}"</h2>`;
+
+  for (const [doc, items] of Object.entries(data.results)) {
+    html += `<h3>${doc}</h3>`;
+    if (items.length === 0) {
+      html += `<p>No results found.</p>`;
+    } else {
+      items.forEach(r => {
+        html += `<p><a class="pdf-link" href="${doc}.pdf#page=${r.page_no}" target="_blank">Page ${r.page_no}</a>: ${r.text_snippet}</p>`;
+      });
+    }
+  }
+
+  html += `<h3>Comparative Summary</h3><p>${data.summary}</p>`;
+  document.getElementById("results").innerHTML = html;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PM Standards Compare</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="overlay">
+<nav class="navbar">
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="pmbok.html">PMBOK 7</a>
+    <a href="prince2.html">PRINCE2</a>
+    <a href="iso.html">ISO 21500/21502</a>
+    <a href="comparison.html">Comparison</a>
+    <a href="search.html">Search</a>
+    <a href="test.html">Explorer</a>
+  </div>
+</nav>
+
+  <div class="hero">
+    <h1>Compare Project Management Standards</h1>
+    <p>Search across PMBOK 7, PRINCE2, and ISO 21500 instantly</p>
+
+    <div class="center-search">
+      <input type="text" id="main-search" placeholder="Search standards...">
+      <button onclick="searchAll()">Search</button>
+    </div>
+  </div>
+
+</div>
+<script>
+  function searchAll() {
+    let query = document.getElementById("main-search").value;
+    if(query.trim() !== "") {
+      window.location.href = "search.html?q=" + encodeURIComponent(query);
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+/* ========== Global Styles ========== */
+body {
+  background: url('../picture.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  color: #fff;
+}
+
+/* Overlay for readability */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.65);
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+/* ========== Navbar ========== */
+nav.navbar {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  text-align: center;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #f5c518;
+}
+
+.nav-links a.active {
+  border-bottom: 2px solid #f5c518;
+}
+
+/* ========== Hero Section ========== */
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.center-search input {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  border: none;
+  border-radius: 8px;
+}
+
+.center-search button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f5c518;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.center-search button:hover {
+  background-color: #ffe164;
+}
+
+/* ========== Content Containers ========== */
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 25px;
+  border-radius: 12px;
+}
+
+/* Tables */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+.comparison-table th, .comparison-table td {
+  border: 1px solid #888;
+  padding: 10px;
+  text-align: center;
+}
+
+.comparison-table th {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Links */
+a.pdf-link {
+  color: #f5c518;
+  text-decoration: none;
+}
+
+a.pdf-link:hover {
+  text-decoration: underline;
+}
+
+/* Headings */
+h1, h2, h3 {
+  text-align: center;
+}
